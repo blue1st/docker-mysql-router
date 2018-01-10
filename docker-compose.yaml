@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: hogehoge
+    ports:
+      - 3306:3306
+  router:
+    image: mysql-router
+    environment:
+      MASTER_DESTINATIONS: mysql:3306
+    ports:
+      - 13306:3306
